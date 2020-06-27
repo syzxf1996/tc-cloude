@@ -13,6 +13,6 @@
           .then((res) => {
               refreshlist(res.result.list);
           });
-          3、修改cloudfunctions/init/index.js 中云函数的实现 ， 使用Promise。all
+          3、修改cloudfunctions/init/index.js 中云函数的实现 ， 使用Promise.all
            
           
