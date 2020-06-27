@@ -1,0 +1,33 @@
+
+<html>
+    <head>
+        <title>意见反馈管理</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="asset/admin.css">
+        <script src="https://imgcache.qq.com/qcloud/tcbjs/1.6.1/tcb.js"></script>
+    </head>
+    <body >
+        aaa
+    <script  >
+
+const tcb = require('tcb-js-sdk')
+const app =  tcb.init({
+    env: 'jinjin-cloudbase-107538'
+});
+const db = app.database();
+const _ = db.command
+const collection = db.collection('collName') // collName 需填当前env下集合名称
+
+let ref = collection.where({ test: _.gt(0) }).watch({
+  onChange: snapshot => {
+      console.log("收到snapshot**********", snapshot)
+  },
+  onError: error => {
+    console.log("收到error**********", error)
+  }
+})
+    </script>
+    </body>
+    
+</html>
+
