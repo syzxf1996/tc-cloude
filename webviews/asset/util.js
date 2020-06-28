@@ -10,19 +10,37 @@ function hidepreview(){
  * 全屏展示图片
  * @param string id 
  */
-function previewnetimg(src){
+async function previewnetimg(src){
     let preview = document.getElementById('preview');
     preview.src = src;
     preview.parentNode.style = "";
 }
 
 function cloudtohttp(src) {
-    if(src==""){
+   /*  if(src==""){
         return "";
     }
     let first=src.indexOf('.');
     let end=src.indexOf('/',first);
-    return 'https://'+src.slice(first+1,end)+'.tcb.qcloud.la/'+src.slice(end+1,src.length);
+    return 'https://'+src.slice(first+1,end)+'.tcb.qcloud.la/'+src.slice(end+1,src.length); */
+    console.log("src is: "+src);
+    console.log("img:"+'https://'+src.slice(first+1,end)+'.tcb.qcloud.la/'+src.slice(end+1,src.length));
+         await cloud
+      .getTempFileURL({
+        fileList: [src]
+      })
+      .then(res => {
+        res.fileList.forEach((el) => {
+          if(el.code === 'SUCCESS') {
+            console.log("res is : "+el.tempFileURL)
+            result=  ''+el.tempFileURL+'';
+          } else {
+            //获取下载链接失败
+          }
+           
+        })
+      });
+      return result;
 }
 
 function dateFormat(fmt, date) {

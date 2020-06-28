@@ -95,7 +95,7 @@ function cloudCheck(){
  * 重新渲染意见列表
  * @param Array list 意见列表
  */
-function refreshlist(list){
+async  function refreshlist(list){
     let el = document.getElementById("list");
     el.innerHTML="";
     advicelist = {};
@@ -124,7 +124,7 @@ function refreshlist(list){
 
             for(let n in tempitem.imgs){
                 let img = document.createElement('img');
-                img.src = cloudtohttp(tempitem.imgs[n]);
+                img.src = await cloudtohttp(tempitem.imgs[n]);
                 img.setAttribute('onclick','previewnetimg("'+img.src+'")');
                 itemimages.appendChild(img);
             }
