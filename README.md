@@ -16,3 +16,13 @@
           3、修改cloudfunctions/init/index.js 中云函数的实现 ， 使用Promise.all
            
           
+腾讯云开发第五章
+ 任务：将教程范例cloudtohttp函数使用的sdk的getTempFileURL进行替换。
+ 提交方式：代码上传到代码托管平台。
+ 
+ 思路：1、定位功能实现的代码webviews/asset/util.js
+      2、定位调用cloudtohttp函数的位置webviews/asset/index.js
+      3、验证功能实现页面webviews/index.html
+      相关函数变更：
+      cloudtohttp()与refreshlist()需要加async与await来控制
+      
